@@ -23,7 +23,11 @@ extension LoginViewController {
         loginView.translatesAutoresizingMaskIntoConstraints = false
     }
     private func layout(){
-        view.addSubview(loginView) 
+        view.addSubview(loginView)
+        
+        NSLayoutConstraint.activate([
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor)//center vertically (y axis)
+        ])
     }
 }
 
