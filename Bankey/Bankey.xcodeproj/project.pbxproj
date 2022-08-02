@@ -12,6 +12,7 @@
 		650F83082897D22000D0EFAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 650F83072897D22000D0EFAF /* Assets.xcassets */; };
 		650F830B2897D22000D0EFAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650F83092897D22000D0EFAF /* LaunchScreen.storyboard */; };
 		650F83152897D9B800D0EFAF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F83142897D9B800D0EFAF /* LoginView.swift */; };
+		65785F962899149E00267ECC /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65785F952899149E00267ECC /* LoginViewTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		650F830A2897D22000D0EFAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		650F830C2897D22000D0EFAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650F83142897D9B800D0EFAF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		65785F952899149E00267ECC /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,9 +56,10 @@
 		650F82FD2897D21F00D0EFAF /* Bankey */ = {
 			isa = PBXGroup;
 			children = (
-				650F83122897D91800D0EFAF /* Files */,
-				650F83132897D98200D0EFAF /* Login */,
 				650F82FE2897D21F00D0EFAF /* AppDelegate.swift */,
+				650F83122897D91800D0EFAF /* Files */,
+				65785F942899148000267ECC /* Unit Testing */,
+				650F83132897D98200D0EFAF /* Login */,
 			);
 			path = Bankey;
 			sourceTree = "<group>";
@@ -78,6 +81,14 @@
 				650F83142897D9B800D0EFAF /* LoginView.swift */,
 			);
 			name = Login;
+			sourceTree = "<group>";
+		};
+		65785F942899148000267ECC /* Unit Testing */ = {
+			isa = PBXGroup;
+			children = (
+				65785F952899149E00267ECC /* LoginViewTest.swift */,
+			);
+			name = "Unit Testing";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 			files = (
 				650F83152897D9B800D0EFAF /* LoginView.swift in Sources */,
 				650F83032897D21F00D0EFAF /* LoginViewController.swift in Sources */,
+				65785F962899149E00267ECC /* LoginViewTest.swift in Sources */,
 				650F82FF2897D21F00D0EFAF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

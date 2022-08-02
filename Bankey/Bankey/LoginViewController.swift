@@ -26,7 +26,10 @@ extension LoginViewController {
         view.addSubview(loginView)
         
         NSLayoutConstraint.activate([
-            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor)//center vertically (y axis)
+            loginView.centerYAnchor.constraint(equalTo: view.centerYAnchor), //center vertically (y axis)
+            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),// multiplier here means 8 pts
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1)
+            
         ])
     }
 }
