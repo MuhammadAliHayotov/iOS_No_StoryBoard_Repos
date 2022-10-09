@@ -109,9 +109,14 @@ extension LoginViewController {
             assertionFailure("UserName/Password must not be nil")
             return
         }
-        if userName.isEmpty || password.isEmpty {
+        
+        //temporary solution without a network
+        if userName == "Ali" && password == "Hello" {
+            signInButton.configuration?.showsActivityIndicator = true
+        } else if userName.isEmpty || password.isEmpty {
             configureView(withMessage: "Username/Password cannot be blank")
-            
+        }else {
+            configureView(withMessage: "Username/Passwprd is incorrect")
         }
     }
     private func configureView(withMessage message: String){
