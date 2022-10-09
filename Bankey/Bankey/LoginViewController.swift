@@ -48,7 +48,7 @@ extension LoginViewController {
         //signInButton
         signInButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.configuration = .filled()
-        signInButton.configuration?.imagePadding = 8
+        signInButton.configuration?.imagePadding = 8 //for our spinning indicator to have 8 units space from the "Button title"
         signInButton.setTitle("Sign In", for: [])
         signInButton.addTarget(self, action: #selector(signInTapped), for: .primaryActionTriggered)
         
@@ -109,12 +109,14 @@ extension LoginViewController {
             assertionFailure("UserName/Password must not be nil")
             return
         }
-        
+        signInButton.configuration?.showsActivityIndicator = false
         //temporary solution without a network
         if userName == "Ali" && password == "Hello" {
             signInButton.configuration?.showsActivityIndicator = true
+            
         } else if userName.isEmpty || password.isEmpty {
             configureView(withMessage: "Username/Password cannot be blank")
+            return
         }else {
             configureView(withMessage: "Username/Passwprd is incorrect")
         }
