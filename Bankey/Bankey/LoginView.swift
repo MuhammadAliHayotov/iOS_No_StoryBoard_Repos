@@ -10,6 +10,7 @@ import UIKit
 
 class LoginView: UIView{
     
+    let stackView = UIStackView()
     let userNameTextField = UITextField()
     
     override init(frame: CGRect){
@@ -32,21 +33,28 @@ extension LoginView {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .orange
         
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.axis = .vertical
+        stackView.spacing = 8
+        
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
         userNameTextField.delegate = self
     }
     
     func layout(){
+        stackView.addArrangedSubview(userNameTextField)
         
+        addSubview(stackView)
         //add the constraints to this subView
-        addSubview(userNameTextField)
+        //addSubview(userNameTextField)
         
         NSLayoutConstraint.activate([
             //top anchor
-            userNameTextField.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
-            userNameTextField.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
-            trailingAnchor.constraint(equalToSystemSpacingAfter: userNameTextField.trailingAnchor, multiplier: 1)
+            stackView.topAnchor.constraint(equalToSystemSpacingBelow: topAnchor, multiplier: 1),
+            stackView.leadingAnchor.constraint(equalToSystemSpacingAfter: leadingAnchor, multiplier: 1),
+            trailingAnchor.constraint(equalToSystemSpacingAfter: stackView.trailingAnchor, multiplier: 1),
+            bottomAnchor.constraint(equalToSystemSpacingBelow: stackView.bottomAnchor, multiplier: 1)
             
         ])
     }
