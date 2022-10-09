@@ -25,10 +25,6 @@ class LoginView: UIView{
     required init(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    //the initial default size, so that when it is added it will already contain default values to be visible
-    /*override var intrinsicContentSize: CGSize {
-        return CGSize(width: 200, height: 200)
-    }*/
 }
 extension LoginView {
     
@@ -40,9 +36,6 @@ extension LoginView {
         stackView.axis = .vertical
         stackView.spacing = 8
 
-       
-
-        
         //user name text field
         userNameTextField.translatesAutoresizingMaskIntoConstraints = false
         userNameTextField.placeholder = "Username"
@@ -92,12 +85,8 @@ extension LoginView: UITextFieldDelegate {
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        if textField.text != "" {
-            return true
-        }
-        else {
-            return false
-        }
+        return true
+        
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         
