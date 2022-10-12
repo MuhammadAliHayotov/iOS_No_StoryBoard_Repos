@@ -13,15 +13,31 @@ class OnBoardingViewController: UIViewController {
     let imageView = UIImageView()
     let label = UILabel()
     
+    let heroImageName: String
+    let titleText: String
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         style()
         layout()
     }
+    
+    init(heroImageName: String, titleText: String){
+        self.heroImageName = heroImageName
+        self.titleText = titleText
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    //if in case someone tries to use storyboard, but we have no one, then this error message pops out
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 extension OnBoardingViewController {
     
     func style(){
+        view.backgroundColor = .systemBackground
+        
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.axis = .vertical
         stackView.spacing = 20
@@ -30,7 +46,7 @@ extension OnBoardingViewController {
         // Image
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
-        imageView.image = UIImage(named: "delorean")
+        imageView.image = UIImage(named: heroImageName)
         
         
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -40,7 +56,7 @@ extension OnBoardingViewController {
         label.numberOfLines = 0
         label.font = UIFont.preferredFont(forTextStyle: .title3)
         label.adjustsFontForContentSizeCategory = true
-        label.text = "This is a simple banking application, and this part is onbaording page 1, some other type of text here"
+        label.text = titleText
         
     }
     

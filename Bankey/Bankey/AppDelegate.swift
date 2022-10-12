@@ -17,8 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .systemBackground
         //window?.rootViewController = LoginViewController()
-        //window?.rootViewController = OnboardingContainerViewController()
-        window?.rootViewController = OnBoardingViewController()
+        window?.rootViewController = OnboardingContainerViewController()
+        //window?.rootViewController = OnBoardingViewController(heroImageName: "delorean", titleText: "This is a simple banking application, and this part is onbaording page 1, some other type of text here")
+        
         return true
     }
 
