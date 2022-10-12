@@ -40,11 +40,12 @@ class OnboardingContainerViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .systemPurple
-        
+        //adding child vc s to parent vc
         addChild(pageViewController)
         view.addSubview(pageViewController.view)
         pageViewController.didMove(toParent: self)
         
+        //set up current VC as a source for pageVC
         pageViewController.dataSource = self
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
