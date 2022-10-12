@@ -41,8 +41,14 @@ extension LoginViewController {
         bankeyText.font = .systemFont(ofSize: 30)
         //About message
         aboutText.translatesAutoresizingMaskIntoConstraints = false
-        aboutText.text = "Cool Bank Application"
+        aboutText.textAlignment = .center
+        aboutText.frame.size.width = view.frame.size.width
+        aboutText.numberOfLines = 0
+        aboutText.text = "Cool Bank Application, Do you agree with me or not like that"
         aboutText.textColor = .systemGray
+        
+        print(aboutText.frame.size.width)
+        
         
         
         //signInButton
@@ -74,6 +80,8 @@ extension LoginViewController {
         //About Text
         NSLayoutConstraint.activate([
             aboutText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            aboutText.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
+            //aboutText.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 1),
             aboutText.topAnchor.constraint(equalToSystemSpacingBelow: bankeyText.bottomAnchor, multiplier: 3)
         ])
         //LoginView

@@ -14,6 +14,7 @@
 		650F83152897D9B800D0EFAF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F83142897D9B800D0EFAF /* LoginView.swift */; };
 		65785F962899149E00267ECC /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65785F952899149E00267ECC /* LoginViewTest.swift */; };
 		A4B23DBD28F2EB5E001D0ABA /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B23DBC28F2EB5E001D0ABA /* OnboardingContainerViewController.swift */; };
+		A4BD44D028F7314900A3FDF9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD44CF28F7314900A3FDF9 /* OnboardingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		650F83142897D9B800D0EFAF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		65785F952899149E00267ECC /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
 		A4B23DBC28F2EB5E001D0ABA /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
+		A4BD44CF28F7314900A3FDF9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				A4B23DBC28F2EB5E001D0ABA /* OnboardingContainerViewController.swift */,
+				A4BD44CF28F7314900A3FDF9 /* OnboardingViewController.swift */,
 			);
 			name = Onboarding;
 			sourceTree = "<group>";
@@ -173,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				650F83152897D9B800D0EFAF /* LoginView.swift in Sources */,
+				A4BD44D028F7314900A3FDF9 /* OnboardingViewController.swift in Sources */,
 				650F83032897D21F00D0EFAF /* LoginViewController.swift in Sources */,
 				65785F962899149E00267ECC /* LoginViewTest.swift in Sources */,
 				A4B23DBD28F2EB5E001D0ABA /* OnboardingContainerViewController.swift in Sources */,
