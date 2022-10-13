@@ -7,13 +7,22 @@
 
 import UIKit
 
+//MARK: LoginViewControllerDelegate
+protocol LoginViewControllerDelegate: AnyObject {
+    func didLogin()
+}
+
+//MARK: LoginViewController
 class LoginViewController: UIViewController {
 
     let bankeyText = UILabel()
     let aboutText = UILabel()
+    
     let loginView = LoginView()
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
+    //LoginViewcontroller delegate
+    weak var delegate: LoginViewControllerDelegate?
     
     var userName : String?{
         return loginView.userNameTextField.text
@@ -46,8 +55,6 @@ extension LoginViewController {
         aboutText.numberOfLines = 0
         aboutText.text = "Cool Bank Application, Do you agree with me or not like that"
         aboutText.textColor = .systemGray
-        
-        print(aboutText.frame.size.width)
         
         
         
@@ -119,8 +126,9 @@ extension LoginViewController {
         }
         signInButton.configuration?.showsActivityIndicator = false
         //temporary solution without a network
-        if userName == "Ali" && password == "Hello" {
+        if userName == "" && password == "" {
             signInButton.configuration?.showsActivityIndicator = true
+            delegate?.didLogin()
             
         } else if userName.isEmpty || password.isEmpty {
             configureView(withMessage: "Username/Password cannot be blank")

@@ -7,6 +7,8 @@
 
 import UIKit
 
+
+
 class OnBoardingViewController: UIViewController {
     
     let stackView = UIStackView()
@@ -15,6 +17,9 @@ class OnBoardingViewController: UIViewController {
     
     let heroImageName: String
     let titleText: String
+    
+  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
