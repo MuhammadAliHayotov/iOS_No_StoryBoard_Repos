@@ -13,6 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     let loginViewController = LoginViewController()
     let onboardingContainerViewController = OnboardingContainerViewController()
+    let dummyViewController = DummyViewController()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
         
@@ -22,25 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
+        dummyViewController.logoutDelegate.self
         
         window?.rootViewController = loginViewController
         
         return true
     }
 }
-// MARK: LoginViewController Delegate
-extension AppDelegate: LoginViewControllerDelegate {
-    func didLogin() {
-        setRootViewController(onboardingContainerViewController)
-    }
-}
-// MARK: OnboardingViewController Delegate
-extension AppDelegate: OnboardingContainerViewControllerDelegate {
-    func didFinishOnboarding() {
-        print("Onboarding")
-    }
-}
-
+// MARK: Change Root View Controller
 extension AppDelegate {
     func setRootViewController(_ vc: UIViewController, animated: Bool = true){
         guard animated, let window = self.window else {
@@ -57,5 +47,28 @@ extension AppDelegate {
                           animations: nil,
                           completion: nil)
     }
+}
+
+
+
+// MARK: LoginViewController Delegate
+extension AppDelegate: LoginViewControllerDelegate {
+    func didLogin() {
+        setRootViewController(onboardingContainerViewController)
+    }
+}
+// MARK: OnboardingViewController Delegate
+extension AppDelegate: OnboardingContainerViewControllerDelegate {
+    func didFinishOnboarding() {
+        setRootViewController(dummyViewController)
+    }
+}
+// MARK: LogoutDelegate
+extension AppDelegate: LogoutDelegate {
+    func didLogout() {
+        setRootViewController(loginViewController)
+    }
+    
+    
 }
 

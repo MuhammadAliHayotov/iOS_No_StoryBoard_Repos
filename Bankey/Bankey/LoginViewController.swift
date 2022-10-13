@@ -7,6 +7,11 @@
 
 import UIKit
 
+
+protocol LogoutDelegate: AnyObject {
+    func didLogout()
+}
+
 //MARK: LoginViewControllerDelegate
 protocol LoginViewControllerDelegate: AnyObject {
     func didLogin()
@@ -19,6 +24,7 @@ class LoginViewController: UIViewController {
     let aboutText = UILabel()
     
     let loginView = LoginView()
+    
     let signInButton = UIButton(type: .system)
     let errorMessageLabel = UILabel()
     //LoginViewcontroller delegate

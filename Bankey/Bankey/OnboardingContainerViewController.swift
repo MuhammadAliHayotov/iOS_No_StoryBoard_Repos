@@ -17,7 +17,10 @@ class OnboardingContainerViewController: UIViewController {
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentVC: UIViewController
+    //buttons
     var closeButton = UIButton(type: .system)
+    var nextButton = UIButton(type: .system)
+    var doneButton = UIButton(type: .system)
     
     weak var delegate: OnboardingContainerViewControllerDelegate?
     
@@ -74,11 +77,29 @@ class OnboardingContainerViewController: UIViewController {
     }
     
     private func style(){
+        //close button
         closeButton.translatesAutoresizingMaskIntoConstraints = false
         closeButton.setTitle("Close", for: [])
         closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
+        //next button
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.setTitle("Next", for: [])
+        nextButton.addTarget(self, action: #selector(nextTapped), for: .primaryActionTriggered)
+        nextButton.isHidden = false
+        //done button
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        doneButton.setTitle("Done", for: [])
+        doneButton.addTarget(self, action: #selector(doneTapped), for: .primaryActionTriggered)
+        doneButton.isHidden = true
+        
+        if currentVC == pages.last!{
+            doneButton.isHidden = false
+            nextButton.isHidden = true
+        }
         
         view.addSubview(closeButton)
+        view.addSubview(nextButton)
+        view.addSubview(doneButton)
     }
     
     private func layout(){
@@ -86,7 +107,16 @@ class OnboardingContainerViewController: UIViewController {
         NSLayoutConstraint.activate([
             closeButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
-            
+        ])
+        //next button constraints
+        NSLayoutConstraint.activate([
+            nextButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: -2),
+            nextButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1)
+        ])
+        //done button constraints
+        NSLayoutConstraint.activate([
+            doneButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: -2),
+            doneButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: -1)
         ])
     }
 }
@@ -129,6 +159,12 @@ extension OnboardingContainerViewController{
     @objc func closeTapped(_ sender: UIButton){
         delegate?.didFinishOnboarding()
         print("close button tapped")
+    }
+    @objc func nextTapped(_ sender: UIButton){
+        
+    }
+    @objc func doneTapped(_ sender: UIButton){
+        
     }
 }
 
