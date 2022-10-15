@@ -7,6 +7,7 @@
 
 import UIKit
 
+//setting up Tab Bar for our View Controllers 
 class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
@@ -21,7 +22,7 @@ class MainViewController: UITabBarController {
         let moreVC = MoreViewController()
         //image names are directly from SF Symbols, so whatever you find from there can simply be added here as a text
         summaryVC.setTabBarImage(imageName: "list.dash.header.rectangle", title: "Summary")
-        moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Move Money")
+        moneyVC.setTabBarImage(imageName: "arrow.left.arrow.right", title: "Transfer")
         moreVC.setTabBarImage(imageName: "ellipsis.circle", title: "More")
         
         let summaryNC = UINavigationController(rootViewController: summaryVC)
@@ -35,6 +36,7 @@ class MainViewController: UITabBarController {
         viewControllers = tabBarList
         
     }
+    //hovering the navigationbar line with a blank image
     private func hideNavigationBarLine(_ navigationBar: UINavigationBar){
         let image = UIImage()
         navigationBar.shadowImage = image
