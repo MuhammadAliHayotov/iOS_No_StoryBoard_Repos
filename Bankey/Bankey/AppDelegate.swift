@@ -53,12 +53,17 @@ extension AppDelegate {
 // MARK: LoginViewController Delegate
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        setRootViewController(onboardingContainerViewController)
+        if LocalState.hasOnboarded {
+            setRootViewController(dummyViewController)
+        } else{
+            setRootViewController(onboardingContainerViewController)
+        }
     }
 }
 // MARK: OnboardingViewController Delegate
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
+        LocalState.hasOnboarded = true
         setRootViewController(dummyViewController)
     }
 }
