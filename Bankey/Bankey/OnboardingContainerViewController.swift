@@ -16,11 +16,21 @@ class OnboardingContainerViewController: UIViewController {
 
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
-    var currentVC: UIViewController
+    
     //buttons
     var closeButton = UIButton(type: .system)
     var nextButton = UIButton(type: .system)
     var doneButton = UIButton(type: .system)
+    
+    var currentVC: UIViewController {
+        didSet{
+            //guard let index = pages.firstIndex(of: currentVC) else {return}
+            //nextButton.isHidden = index == pages.count - 1
+            //nextButton.isHidden = index == 0
+            //doneButton.isHidden = !(index == pages.count - 1)
+                
+        }
+    }
     
     weak var delegate: OnboardingContainerViewControllerDelegate?
     
