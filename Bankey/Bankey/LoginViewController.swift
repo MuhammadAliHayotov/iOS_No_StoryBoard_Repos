@@ -7,7 +7,7 @@
 
 import UIKit
 
-
+// MARK: Logout delegate
 protocol LogoutDelegate: AnyObject {
     func didLogout()
 }

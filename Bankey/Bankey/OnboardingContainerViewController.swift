@@ -98,8 +98,8 @@ class OnboardingContainerViewController: UIViewController {
         }
         
         view.addSubview(closeButton)
-        view.addSubview(nextButton)
-        view.addSubview(doneButton)
+        //view.addSubview(nextButton)
+        //view.addSubview(doneButton)
     }
     
     private func layout(){
@@ -109,7 +109,7 @@ class OnboardingContainerViewController: UIViewController {
             closeButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 2)
         ])
         //next button constraints
-        NSLayoutConstraint.activate([
+       /* NSLayoutConstraint.activate([
             nextButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: -2),
             nextButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: 1)
         ])
@@ -117,7 +117,7 @@ class OnboardingContainerViewController: UIViewController {
         NSLayoutConstraint.activate([
             doneButton.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: -2),
             doneButton.topAnchor.constraint(equalToSystemSpacingBelow: view.safeAreaLayoutGuide.topAnchor, multiplier: -1)
-        ])
+        ])*/
     }
 }
 

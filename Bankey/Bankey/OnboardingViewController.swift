@@ -4,7 +4,6 @@
 //
 //  Created by Mukhammadali Khayotov on 12/10/22.
 //
-
 import UIKit
 
 
@@ -18,9 +17,7 @@ class OnBoardingViewController: UIViewController {
     let heroImageName: String
     let titleText: String
     
-  
-    
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         style()

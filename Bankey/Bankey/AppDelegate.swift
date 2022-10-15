@@ -4,9 +4,8 @@
 //
 //  Created by A253 on 01/08/22.
 //
-
 import UIKit
- 
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
@@ -23,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loginViewController.delegate = self
         onboardingContainerViewController.delegate = self
-        dummyViewController.logoutDelegate.self
+        dummyViewController.logoutDelegate = self
         
         window?.rootViewController = loginViewController
         
@@ -68,7 +67,6 @@ extension AppDelegate: LogoutDelegate {
     func didLogout() {
         setRootViewController(loginViewController)
     }
-    
     
 }
 

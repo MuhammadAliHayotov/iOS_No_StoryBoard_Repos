@@ -7,6 +7,7 @@
 
 import UIKit
 
+
 class DummyViewController: UIViewController {
     
     let stackView = UIStackView()
@@ -50,5 +51,6 @@ extension DummyViewController {
     }
     @objc func logoutTapped(sender: UIButton){
         logoutDelegate?.didLogout()
+        print("Logout button tapped")
     }
 }
