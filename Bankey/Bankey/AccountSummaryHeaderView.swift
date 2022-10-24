@@ -20,6 +20,7 @@ class AccountSummaryHeaderView: UIView {
         super.init(coder: aDecoder)
         commonInit()
     }
+    //the default view we are setting up
     override var intrinsicContentSize: CGSize{
         return CGSize(width: UIView.noIntrinsicMetric, height: 144)
     }
