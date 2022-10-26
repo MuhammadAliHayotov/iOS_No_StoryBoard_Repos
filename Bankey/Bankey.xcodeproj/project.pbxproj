@@ -13,6 +13,8 @@
 		650F830B2897D22000D0EFAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 650F83092897D22000D0EFAF /* LaunchScreen.storyboard */; };
 		650F83152897D9B800D0EFAF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 650F83142897D9B800D0EFAF /* LoginView.swift */; };
 		65785F962899149E00267ECC /* LoginViewTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65785F952899149E00267ECC /* LoginViewTest.swift */; };
+		A44F70A22909C0E50087E1D7 /* DecimalUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44F70A12909C0E50087E1D7 /* DecimalUtil.swift */; };
+		A44F70A42909C1490087E1D7 /* CurrencyFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A44F70A32909C1490087E1D7 /* CurrencyFormatter.swift */; };
 		A453732229082FA80085A57F /* AccountSummaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A453732129082FA80085A57F /* AccountSummaryCell.swift */; };
 		A4B23DBD28F2EB5E001D0ABA /* OnboardingContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4B23DBC28F2EB5E001D0ABA /* OnboardingContainerViewController.swift */; };
 		A4BD44D028F7314900A3FDF9 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4BD44CF28F7314900A3FDF9 /* OnboardingViewController.swift */; };
@@ -34,6 +36,8 @@
 		650F830C2897D22000D0EFAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		650F83142897D9B800D0EFAF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		65785F952899149E00267ECC /* LoginViewTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewTest.swift; sourceTree = "<group>"; };
+		A44F70A12909C0E50087E1D7 /* DecimalUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecimalUtil.swift; sourceTree = "<group>"; };
+		A44F70A32909C1490087E1D7 /* CurrencyFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyFormatter.swift; sourceTree = "<group>"; };
 		A453732129082FA80085A57F /* AccountSummaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSummaryCell.swift; sourceTree = "<group>"; };
 		A4B23DBC28F2EB5E001D0ABA /* OnboardingContainerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerViewController.swift; sourceTree = "<group>"; };
 		A4BD44CF28F7314900A3FDF9 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; usesTabs = 0; };
@@ -147,6 +151,8 @@
 			children = (
 				A4BD44D428FAB8AF00A3FDF9 /* LocalState.swift */,
 				A4BD44D628FACAD400A3FDF9 /* UIViewController_Utils.swift */,
+				A44F70A12909C0E50087E1D7 /* DecimalUtil.swift */,
+				A44F70A32909C1490087E1D7 /* CurrencyFormatter.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -236,6 +242,7 @@
 				A453732229082FA80085A57F /* AccountSummaryCell.swift in Sources */,
 				A4BD44D228F8255C00A3FDF9 /* DummyViewController.swift in Sources */,
 				650F83152897D9B800D0EFAF /* LoginView.swift in Sources */,
+				A44F70A42909C1490087E1D7 /* CurrencyFormatter.swift in Sources */,
 				A4BD44D028F7314900A3FDF9 /* OnboardingViewController.swift in Sources */,
 				650F83032897D21F00D0EFAF /* LoginViewController.swift in Sources */,
 				65785F962899149E00267ECC /* LoginViewTest.swift in Sources */,
@@ -243,6 +250,7 @@
 				650F82FF2897D21F00D0EFAF /* AppDelegate.swift in Sources */,
 				A4BD44D728FACAD400A3FDF9 /* UIViewController_Utils.swift in Sources */,
 				A4BD44DC28FB151900A3FDF9 /* AccountSummaryViewController.swift in Sources */,
+				A44F70A22909C0E50087E1D7 /* DecimalUtil.swift in Sources */,
 				A4BD44D528FAB8AF00A3FDF9 /* LocalState.swift in Sources */,
 				A4BD44D928FAD15F00A3FDF9 /* MainViewController.swift in Sources */,
 			);
