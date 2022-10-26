@@ -8,6 +8,20 @@
 import UIKit
 
 class AccountSummaryCell: UITableViewCell {
+    
+    enum AccountType: String {
+        case Banking
+        case CreditCard
+        case Investment
+    }
+    
+    struct ViewModel {
+        let accountType: AccountType
+        let accountName: String
+    }
+    
+    let viewModel: ViewModel? = nil
+    
     //left handside of our cell
     let typeLabel = UILabel()
     let underLineView = UIView()
@@ -19,7 +33,7 @@ class AccountSummaryCell: UITableViewCell {
     let balanceAmountLabel = UILabel()
     
     let chevronImageView = UIImageView() // chevron >
-    
+    //identifier of our cell
     static let reuseID = "AccountSummaryCell"
     static let rowHeight: CGFloat = 112
     
@@ -123,5 +137,24 @@ extension AccountSummaryCell {
         return rootString
     }
     
+}
+extension AccountSummaryCell {
+    func configure(with vm: ViewModel){
+        typeLabel.text = vm.accountType.rawValue
+        nameLabel.text = vm.accountName
+        //switch is really good with enums
+        switch vm.accountType {
+        case .Banking:
+            underLineView.backgroundColor = appColor
+            balanceLabel.text = "Your balance"
+        case .CreditCard:
+            underLineView.backgroundColor = .systemOrange
+            balanceLabel.text = "Your balance"
+        case .Investment:
+            underLineView.backgroundColor = .systemPurple
+            balanceLabel.text = "Value"
+            break
+        }
+    }
 }
 
