@@ -45,6 +45,7 @@ extension LoginView {
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
+        passwordTextField.enablePasswordToggle()
         //the line that devides username from the password
         deviderView.translatesAutoresizingMaskIntoConstraints = false
         deviderView.backgroundColor = .secondarySystemFill
