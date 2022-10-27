@@ -29,12 +29,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let vc = mainViewController
         vc.setStatusBar()
         
-        UINavigationBar.appearance().isTranslucent = false
-        UINavigationBar.appearance().backgroundColor = appColor
-        
-        window?.rootViewController = vc
+        displayLogin()
         
         return true
+    }
+    private func displayLogin(){
+        setRootViewController(loginViewController)
+    }
+    private func displayNextScreen(){
+        if LocalState.hasOnboarded {
+            setRootViewController(mainViewController)
+        } else{
+            setRootViewController(onboardingContainerViewController)
+        }
+    }
+    private func prepMainView(){
+        mainViewController.setStatusBar()
+        UINavigationBar.appearance().isTranslucent = false
+        UINavigationBar.appearance().backgroundColor = appColor
     }
 }
 // MARK: Change Root View Controller
@@ -61,17 +73,14 @@ extension AppDelegate {
 // MARK: LoginViewController Delegate
 extension AppDelegate: LoginViewControllerDelegate {
     func didLogin() {
-        if LocalState.hasOnboarded {
-            setRootViewController(mainViewController)
-        } else{
-            setRootViewController(onboardingContainerViewController)
-        }
+        displayNextScreen()
     }
 }
 // MARK: OnboardingViewController Delegate
 extension AppDelegate: OnboardingContainerViewControllerDelegate {
     func didFinishOnboarding() {
         LocalState.hasOnboarded = true
+        prepMainView() //setup nav bar and colors
         setRootViewController(mainViewController)
     }
 }
