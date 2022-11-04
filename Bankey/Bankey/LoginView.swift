@@ -45,7 +45,9 @@ extension LoginView {
         passwordTextField.placeholder = "Password"
         passwordTextField.isSecureTextEntry = true
         passwordTextField.delegate = self
-        passwordTextField.enablePasswordToggle()
+        
+        passwordTextField.enablePasswordToggle() // toggle passwordText visibility as well as add the eye image inside that function
+        
         //the line that devides username from the password
         deviderView.translatesAutoresizingMaskIntoConstraints = false
         deviderView.backgroundColor = .secondarySystemFill

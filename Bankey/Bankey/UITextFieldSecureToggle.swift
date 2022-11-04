@@ -16,10 +16,9 @@ extension UITextField {
         passwordToggleButton.setImage(UIImage(systemName: "eye.fill"), for: .normal)
         passwordToggleButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .selected)
         passwordToggleButton.addTarget(self, action: #selector(togglePasswordView), for: .touchUpInside)
-        rightView = passwordToggleButton
-        rightViewMode = .always
+        rightView = passwordToggleButton //places the image into right side
+        rightViewMode = .always // always shows the image on the right side
     }
-    
     @objc func togglePasswordView(_ sender: Any){
         isSecureTextEntry.toggle()
         passwordToggleButton.isSelected.toggle()
