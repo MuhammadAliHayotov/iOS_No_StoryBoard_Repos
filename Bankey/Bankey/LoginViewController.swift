@@ -19,7 +19,7 @@ protocol LoginViewControllerDelegate: AnyObject {
 
 //MARK: LoginViewController
 class LoginViewController: UIViewController {
-
+    
     let titleLabel = UILabel()
     let subtitleLabel = UILabel()
     
@@ -42,7 +42,7 @@ class LoginViewController: UIViewController {
     var leadingEdgeOffScreen: CGFloat = -1000
     
     var titleLeadingAnchor: NSLayoutConstraint?
-    
+    var subtitleLeadingAnchor: NSLayoutConstraint?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,7 +52,17 @@ class LoginViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         signInButton.configuration?.showsActivityIndicator = false
+        
+        //for restarting animation every time the user enters the screen
+        titleLeadingAnchor?.constant = leadingEdgeOffScreen
+        subtitleLeadingAnchor?.constant = leadingEdgeOffScreen
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        animate()
+    }
+    
 }
 
 extension LoginViewController {
@@ -61,17 +71,20 @@ extension LoginViewController {
         
         //Bankey text
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.text = "Bankey"
-        titleLabel.textColor = .black
-        titleLabel.font = .systemFont(ofSize: 30)
+        titleLabel.alpha = 0 // so that initially this is invisible
+        
         //About message
         subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
         subtitleLabel.textAlignment = .center
         subtitleLabel.frame.size.width = view.frame.size.width
         subtitleLabel.numberOfLines = 0
         subtitleLabel.text = "Cool Bank Application, Do you agree with me or not like that"
-        subtitleLabel.textColor = .systemGray
-        
+        subtitleLabel.textColor = .label
+        subtitleLabel.alpha = 0
         
         
         //signInButton
@@ -94,19 +107,23 @@ extension LoginViewController {
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
-        
-        // Title label
+    
+        // Title
         NSLayoutConstraint.activate([
             subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
-            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-            
+            titleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
-        // Subtitle label
+            
+        titleLeadingAnchor = titleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        titleLeadingAnchor?.isActive = true
+        
         NSLayoutConstraint.activate([
             loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
-            subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
             subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
+            
+        subtitleLeadingAnchor = subtitleLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: leadingEdgeOffScreen)
+        subtitleLeadingAnchor?.isActive = true
         
         //LoginView
         NSLayoutConstraint.activate([
@@ -159,3 +176,29 @@ extension LoginViewController {
     }
 }
 
+// MARK: - Animations
+extension LoginViewController {
+    private func animate() {
+        let duration = 0.8
+        
+        let animator1 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.titleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator1.startAnimation()
+        
+        let animator2 = UIViewPropertyAnimator(duration: duration, curve: .easeInOut) {
+            self.subtitleLeadingAnchor?.constant = self.leadingEdgeOnScreen
+            self.view.layoutIfNeeded()
+        }
+        animator2.startAnimation(afterDelay: 0.2)
+        
+        let animator3 = UIViewPropertyAnimator(duration: duration * 2, curve: .easeInOut){
+            self.titleLabel.alpha = 1
+            self.subtitleLabel.alpha = 1
+            self.view.layoutIfNeeded()
+        }
+        animator3.startAnimation(afterDelay: 0.2)
+       
+    }
+}
