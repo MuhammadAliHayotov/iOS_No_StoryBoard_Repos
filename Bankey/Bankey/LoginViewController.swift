@@ -20,8 +20,8 @@ protocol LoginViewControllerDelegate: AnyObject {
 //MARK: LoginViewController
 class LoginViewController: UIViewController {
 
-    let bankeyText = UILabel()
-    let aboutText = UILabel()
+    let titleLabel = UILabel()
+    let subtitleLabel = UILabel()
     
     let loginView = LoginView()
     
@@ -36,6 +36,12 @@ class LoginViewController: UIViewController {
     var password : String?{
         return loginView.passwordTextField.text
     }
+    
+    //for animation
+    var leadingEdgeOnScreen: CGFloat = 16
+    var leadingEdgeOffScreen: CGFloat = -1000
+    
+    var titleLeadingAnchor: NSLayoutConstraint?
     
     
     override func viewDidLoad() {
@@ -54,17 +60,17 @@ extension LoginViewController {
         loginView.translatesAutoresizingMaskIntoConstraints = false
         
         //Bankey text
-        bankeyText.translatesAutoresizingMaskIntoConstraints = false
-        bankeyText.text = "Bankey"
-        bankeyText.textColor = .black
-        bankeyText.font = .systemFont(ofSize: 30)
+        titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        titleLabel.text = "Bankey"
+        titleLabel.textColor = .black
+        titleLabel.font = .systemFont(ofSize: 30)
         //About message
-        aboutText.translatesAutoresizingMaskIntoConstraints = false
-        aboutText.textAlignment = .center
-        aboutText.frame.size.width = view.frame.size.width
-        aboutText.numberOfLines = 0
-        aboutText.text = "Cool Bank Application, Do you agree with me or not like that"
-        aboutText.textColor = .systemGray
+        subtitleLabel.translatesAutoresizingMaskIntoConstraints = false
+        subtitleLabel.textAlignment = .center
+        subtitleLabel.frame.size.width = view.frame.size.width
+        subtitleLabel.numberOfLines = 0
+        subtitleLabel.text = "Cool Bank Application, Do you agree with me or not like that"
+        subtitleLabel.textColor = .systemGray
         
         
         
@@ -83,42 +89,42 @@ extension LoginViewController {
         errorMessageLabel.isHidden = true
     }
     private func layout(){
-        view.addSubview(bankeyText)
-        view.addSubview(aboutText)
+        view.addSubview(titleLabel)
+        view.addSubview(subtitleLabel)
         view.addSubview(loginView)
         view.addSubview(signInButton)
         view.addSubview(errorMessageLabel)
         
-        //Bankey Text
+        // Title label
         NSLayoutConstraint.activate([
-            bankeyText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            bankeyText.topAnchor.constraint(equalToSystemSpacingBelow: view.topAnchor, multiplier: 30)
+            subtitleLabel.topAnchor.constraint(equalToSystemSpacingBelow: titleLabel.bottomAnchor, multiplier: 3),
+            titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+            
         ])
-        //About Text
+        // Subtitle label
         NSLayoutConstraint.activate([
-            aboutText.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            aboutText.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            //aboutText.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 1),
-            aboutText.topAnchor.constraint(equalToSystemSpacingBelow: bankeyText.bottomAnchor, multiplier: 3)
-        ])
-        //LoginView
-        NSLayoutConstraint.activate([
-            loginView.topAnchor.constraint(equalToSystemSpacingBelow: aboutText.bottomAnchor, multiplier: 3), //center vertically (y axis)
-            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),// multiplier here means 8 pts
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 1),
-        ])
-        //Sign In Button
-        NSLayoutConstraint.activate([
-            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
-            signInButton.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: signInButton.trailingAnchor, multiplier: 1)
+            loginView.topAnchor.constraint(equalToSystemSpacingBelow: subtitleLabel.bottomAnchor, multiplier: 3),
+            subtitleLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            subtitleLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
         
-        //Error Message Label
+        //LoginView
+        NSLayoutConstraint.activate([
+            loginView.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 2),
+            view.trailingAnchor.constraint(equalToSystemSpacingAfter: loginView.trailingAnchor, multiplier: 2),
+            view.centerYAnchor.constraint(equalTo: loginView.centerYAnchor)
+        ])
+        //Button
+        NSLayoutConstraint.activate([
+            signInButton.topAnchor.constraint(equalToSystemSpacingBelow: loginView.bottomAnchor, multiplier: 2),
+            signInButton.trailingAnchor.constraint(equalTo: loginView.trailingAnchor),
+            signInButton.leadingAnchor.constraint(equalTo: loginView.leadingAnchor)
+        ])
+        // Error message
         NSLayoutConstraint.activate([
             errorMessageLabel.topAnchor.constraint(equalToSystemSpacingBelow: signInButton.bottomAnchor, multiplier: 2),
-            errorMessageLabel.leadingAnchor.constraint(equalToSystemSpacingAfter: view.leadingAnchor, multiplier: 1),
-            view.trailingAnchor.constraint(equalToSystemSpacingAfter: errorMessageLabel.trailingAnchor, multiplier: 1)
+            errorMessageLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor),
+            errorMessageLabel.trailingAnchor.constraint(equalTo: loginView.trailingAnchor)
         ])
         
     }
